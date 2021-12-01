@@ -18,7 +18,7 @@ namespace Dotnet2
              Challenge8.showOutput();
             */
 
-            Assignment.program.Start();
+            Assignment.Prog.Start();
            
         }
     }

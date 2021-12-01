@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Dotnet2.Assignment
 {
-    public class program
+    public class Prog
     {
        static int[] a = { 40, 38, 37, 36, 34, 33, 32, 31, 30, 30, 30, 29, 26, 26, 19 };
         public static void Start()
         {
-            var object1 = new stats();
+            var object1 = new StatsProcessor();
 
             object1.Numbers = a;
             

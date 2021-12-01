@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Dotnet2.Assignment
 {
-    internal class stats
+    internal class StatsProcessor
     {
         internal int[] Numbers { private get; set; }
 
