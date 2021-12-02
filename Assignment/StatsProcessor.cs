@@ -10,34 +10,28 @@ namespace Dotnet2.Assignment
     {
         internal int[] Numbers { private get; set; }
 
-        internal int CalculateSum()
+        internal StatsResult GetStatsProcessorResult()
         {
-            // this uses a nifty util from .NET from the LINQ namespace
-            // see the "using..." section at the top of the file
-            return Numbers.Sum();
-        }
-        internal double Mean()
-        {
-            int n = Numbers.Length;
-            int sum = 0;
-            for (int i = 0; i < n; i++)
-                sum += Numbers[i];
-
-            return (double)sum / (double)n;
+            var result = new StatsResult();
+            result.Mean = CalculateAverage();
+            result.Median = CalculateMedian();
+            result.Mode = CalculateMode();
+            return result;
         }
 
-        internal double Median()
-        {
-            int n = Numbers.Length;
-            // Checks if input array has even or odd number of elements and finds the average
-            if (n % 2 != 0)
-                return (double)Numbers[n / 2];
+        private int CalculateAverage() => Numbers.Sum() / Numbers.Length;
 
-            // Gets position of the median
-            return (double)(Numbers[(n - 1) / 2] + Numbers[n / 2]) / 2.0;
+        private int CalculateMedian()
+        {
+            var sortedData = Numbers.OrderBy(i => i).ToArray();
+            var n = sortedData.Length;
+            var median = n % 2 == 0
+                ? (sortedData[n / 2 - 1] + sortedData[n / 2]) / 2
+                : sortedData[n / 2];
+            return median;
         }
 
-        internal int Mode()
+        private int CalculateMode()
         {
             int n = Numbers.Length;
             // stores max value of input array

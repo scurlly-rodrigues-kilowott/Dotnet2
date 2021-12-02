@@ -19,16 +19,14 @@ namespace Dotnet2.Assignment
 
             // Function call
 
-            var sum  = object1.CalculateSum();
-            var mean = object1.Mean();
-            var mode = object1.Mode();
-            var median = object1.Median();
+            var result  = object1.GetStatsProcessorResult();
+            
             
 
-            Console.WriteLine($"Sum : {sum}");
-            Console.WriteLine($"Mean : {mean}");
-            Console.WriteLine($"Median : {median}");
-            Console.WriteLine($"Mode : {mode}");
+            
+            Console.WriteLine($"Mean : {result.Mean}");
+            Console.WriteLine($"Median : {result.Median}");
+            Console.WriteLine($"Mode : {result.Mode}");
         }
 
         
